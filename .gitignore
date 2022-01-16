@@ -1,0 +1,19 @@
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+**/migrations
+media
+
+# Environment #
+.venv
+venv/
+
+# Unit tests #
+htmlcov/
+.coverage
+
+# Visual Studio Code # 
+.vscode/*
