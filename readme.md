@@ -6,6 +6,12 @@ Starting point of a restful api where my database will store articles, stories, 
 
 I may connect it to a react front-end web app.
 
+## STACK AND REQUIREMENTS
+
+django + djangorestframework 
+
+coverage for unit test.
+
 ## MY LOGS
 
 Initialize venv and install django. Start project and apps.
