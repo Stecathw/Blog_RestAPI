@@ -1,6 +1,14 @@
+# API BLOG
+
+** Under construction**
+
+Starting point of a restful api where my database will store articles, stories, images and pictures, flight logs and tracks about my journey as a paragliding pilot.
+
+I may connect it to a react front-end web app.
+
 ## MY LOGS
 
-Initlize venv and install django. Start project and apps.
+Initialize venv and install django. Start project and apps.
 
 core is the project containing both app blog and blog_api.
 
