@@ -62,3 +62,11 @@ Run :
 coverage run --omit='*/venv/*' manage.py test
 coverage html
 writting missing tests bot in blog (blog content test) and blog_api (testing endpoints response)
+
+CORS Cross-Origin Resource Sharing
+Install django cors headers
+https://pypi.org/project/django-cors-headers/2.0.0/
+
+more about cors :
+https://web.dev/cross-origin-resource-sharing/
+
