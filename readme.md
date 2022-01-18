@@ -70,3 +70,6 @@ https://pypi.org/project/django-cors-headers/2.0.0/
 more about cors :
 https://web.dev/cross-origin-resource-sharing/
 
+changing rest framework permissions to DjangoModelPermissionsOrAnonReadOnly
+the admin is the only author able to perform CRUD's on posts
+
