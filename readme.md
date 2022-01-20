@@ -64,12 +64,15 @@ coverage html
 writting missing tests bot in blog (blog content test) and blog_api (testing endpoints response)
 
 CORS Cross-Origin Resource Sharing
-Install django cors headers
+Install django cors headers to allow React front end to be connected.
 https://pypi.org/project/django-cors-headers/2.0.0/
 
 more about cors :
 https://web.dev/cross-origin-resource-sharing/
 
-changing rest framework permissions to DjangoModelPermissionsOrAnonReadOnly
+Changing rest framework permissions to IsAuthenticatedOrReadOnly
 the admin is the only author able to perform CRUD's on posts
 
+Created two different serializer for detail and list view. 
+Refactored views.py with viewsets class from DRF. Defining both get_queryset and get_object.
+As DRF provide router to automaticly handle URLS I also refactored urls.py
