@@ -20,7 +20,8 @@ class PostViewSet(viewsets.ModelViewSet):
             'list': PostListSerializer,
             'retrieve': PostSerializer,
         }
-    default_serializer_class = PostSerializer # Your default serializer
+    # Specifying default one
+    default_serializer_class = PostSerializer 
     
     def get_queryset(self):
         """
