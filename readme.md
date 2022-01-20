@@ -4,13 +4,15 @@
 
 Starting point of a restful api where my database will store articles, stories, images and pictures, flight logs and tracks about my journey as a paragliding pilot.
 
-I may connect it to a react front-end web app.
+Connected to react_blog app.
 
 ## STACK AND REQUIREMENTS
 
 django + djangorestframework 
 
-coverage for unit test.
+django cors headers
+
+coverage for unit test
 
 ## MY LOGS
 
