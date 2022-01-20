@@ -80,3 +80,8 @@ the admin is the only author able to perform CRUD's on posts
 Created two different serializer for detail and list view (NB: different "actions" but same GET request for both of them.)
 Refactored views.py with viewsets class from DRF. Defining both get_queryset and get_object.
 As DRF provide router to automaticly handle URLS I also refactored urls.py
+Added auto slug input on Post model save method.
+
+### TO BE MADE
+
+integration of markdown on posts.
