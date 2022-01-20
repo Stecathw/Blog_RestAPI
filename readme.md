@@ -16,6 +16,7 @@ coverage for unit test
 
 ## MY LOGS
 
+#### 16/01/2022
 Initialize venv and install django. Start project and apps.
 
 core is the project containing both app blog and blog_api.
@@ -72,9 +73,10 @@ https://pypi.org/project/django-cors-headers/2.0.0/
 more about cors :
 https://web.dev/cross-origin-resource-sharing/
 
+
+#### 20/01/2022
 Changing rest framework permissions to IsAuthenticatedOrReadOnly
 the admin is the only author able to perform CRUD's on posts
-
 Created two different serializer for detail and list view (NB: different "actions" but same GET request for both of them.)
 Refactored views.py with viewsets class from DRF. Defining both get_queryset and get_object.
 As DRF provide router to automaticly handle URLS I also refactored urls.py
