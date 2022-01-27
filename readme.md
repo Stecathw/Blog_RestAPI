@@ -82,6 +82,8 @@ Refactored views.py with viewsets class from DRF. Defining both get_queryset and
 As DRF provide router to automaticly handle URLS I also refactored urls.py
 Added auto slug input on Post model save method.
 
-### TO BE MADE
+#### 27/01/2022
 
-integration of markdown on posts.
+Added a new model and new serializer, view and route for flight tracks.
+
+### TO BE MADE

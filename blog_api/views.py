@@ -1,9 +1,9 @@
 # DRF Modelviewset
 from rest_framework import viewsets
 # Model
-from blog.models import Post
+from blog.models import Flight_Track, Post
 # Serializer
-from .serializers import PostSerializer, PostListSerializer
+from .serializers import PostSerializer, PostListSerializer, FlightTrackListSerializer
 # Single object
 from django.shortcuts import get_object_or_404
 
@@ -46,4 +46,14 @@ class PostViewSet(viewsets.ModelViewSet):
         return self.serializer_classes.get(self.action, self.default_serializer_class)
 
 
+class FlightTrackViewSet(viewsets.ModelViewSet):
+    
+    serializer_class = FlightTrackListSerializer
+    default_serializer_class = PostSerializer
 
+    def get_queryset(self):
+        """
+        Returns the queryset that should be used for list views,
+        used as the base for lookups in detail views.
+        """        
+        return Flight_Track.objects.all()

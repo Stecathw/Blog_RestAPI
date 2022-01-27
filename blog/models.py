@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.fields.json import JSONField
 from django.template.defaultfilters import slugify
 
 # Create your models here.
@@ -40,8 +41,33 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
-        super().save(*args, **kwargs)      
-
+        super().save(*args, **kwargs)    
         
     def __str__(self):
         return self.title
+    
+# New flight track model
+class Flight_Track(models.Model):
+    
+    TYPE_OF_FLIGHT = (
+        (0, "Dist 3pts"),
+        (1, "Triangle plat"),
+        (2, "Triangle FAI"),
+    )
+
+    track_json = JSONField()
+    date = models.DateField(auto_now=False, auto_now_add=False)
+    added_date = models.DateTimeField(auto_now_add=True)
+    duration = models.CharField(max_length=100, blank=True)
+    distance = models.DecimalField(max_digits=6, decimal_places=2)
+    CFD_public_link = models.CharField(max_length=100, blank=True)   
+    category = models.IntegerField(choices=TYPE_OF_FLIGHT, default=0)
+
+    def __str__(self):
+        return f"{self.TYPE_OF_FLIGHT[self.category][1]} le {self.date} de {self.distance} km"
+
+    def type_of_flight(self):
+        """
+        Returns type of flight 0, 1 or 2 according to TYPE_OF_FLIGHT
+        """
+        return self.TYPE_OF_FLIGHT[self.category][0]

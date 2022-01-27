@@ -1,6 +1,6 @@
 from dataclasses import fields
 from rest_framework import serializers
-from blog.models import Post
+from blog.models import Post, Flight_Track
 
 class PostSerializer(serializers.ModelSerializer):
     """
@@ -22,3 +22,10 @@ class PostListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ['id', 'title', 'published', 'sum_up', 'slug']
+        
+
+class FlightTrackListSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Flight_Track
+        fields = '__all__'

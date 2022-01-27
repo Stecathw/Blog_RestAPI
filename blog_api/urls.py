@@ -1,14 +1,15 @@
 from posixpath import basename
 # from django.urls import path
-from .views import PostViewSet
+from .views import FlightTrackViewSet, PostViewSet
 
-from rest_framework.routers import SimpleRouter
+from rest_framework.routers import DefaultRouter
 
 app_name = 'blog_api'
 
-router = SimpleRouter()
+router = DefaultRouter()
 
-router.register(r'', PostViewSet, basename='post')
+router.register(r'posts', PostViewSet, basename='post')
+router.register(r'tracks', FlightTrackViewSet, basename='track')
 urlpatterns = router.urls
 
 # urlpatterns=[
