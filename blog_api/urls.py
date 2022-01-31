@@ -1,6 +1,6 @@
 from posixpath import basename
 # from django.urls import path
-from .views import FlightTrackViewSet, PostViewSet
+from .views import PhotoViewSet, FlightTrackViewSet, PostViewSet
 
 from rest_framework.routers import DefaultRouter
 
@@ -10,6 +10,7 @@ router = DefaultRouter()
 
 router.register(r'posts', PostViewSet, basename='post')
 router.register(r'tracks', FlightTrackViewSet, basename='track')
+router.register(r'photos', PhotoViewSet, basename='photos')
 urlpatterns = router.urls
 
 # urlpatterns=[

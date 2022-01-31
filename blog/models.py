@@ -1,7 +1,9 @@
+from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.fields.json import JSONField
 from django.template.defaultfilters import slugify
+
 
 # Create your models here.
 class Category(models.Model):
@@ -15,12 +17,12 @@ class Post(models.Model):
     
     class PublicPostObjects(models.Manager):
         def get_queryset(self):
-            return super().get_queryset().filter(status=1)  
+            return super().get_queryset().filter(status='public')  
     
-    STATUS = (
-        (0,"Privé"),
-        (1,"Publique")
-    )       
+    options = (
+        ('public','Public'),
+        ('private', 'Private')
+    )     
     
     category = models.ForeignKey(Category, on_delete=models.PROTECT, default=1)
     title = models.CharField(max_length=200, unique=True)
@@ -30,7 +32,7 @@ class Post(models.Model):
     content = models.TextField()
     sum_up = models.TextField(default='')
     published = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=STATUS, default=1)
+    status = models.CharField(max_length=7, choices=options, default='public')
     
     objects = models.Manager() # The default manager
     publicpostobjects = PublicPostObjects() # The custom manager
@@ -71,3 +73,32 @@ class Flight_Track(models.Model):
         Returns type of flight 0, 1 or 2 according to TYPE_OF_FLIGHT
         """
         return self.TYPE_OF_FLIGHT[self.category][0]
+    
+
+#New image model   
+DIRECTORY_PATH='photos/'
+
+class Photo(models.Model):   
+    
+    class PublicPhotosObjects(models.Manager):
+        def get_queryset(self):
+            return super().get_queryset().filter(status='public')
+         
+    options = (
+        ('public','Public'),
+        ('private', 'Private')
+    )
+      
+    
+    title = models.CharField(max_length=250)
+    alt = models.TextField(null = True)
+    image = models.ImageField(upload_to=DIRECTORY_PATH, default='images/default.jpg')
+    slug = models.SlugField(max_length=250, unique_for_date='created')
+    created = models.DateTimeField(auto_now=True)
+    taken=models.DateField(default=timezone.now)
+    altitudeAMSL=models.CharField(max_length=4, default='1000')
+    author = models.ForeignKey(User, on_delete=models.PROTECT, related_name='author')
+    status = models.CharField(max_length=7, choices=options, default='public')
+    
+    objects = models.Manager() # The default manager
+    publicphotosobjects = PublicPhotosObjects() # The custom manager

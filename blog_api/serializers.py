@@ -1,6 +1,7 @@
 from dataclasses import fields
 from rest_framework import serializers
-from blog.models import Post, Flight_Track
+from blog.models import Photo, Post, Flight_Track
+
 
 class PostSerializer(serializers.ModelSerializer):
     """
@@ -19,13 +20,21 @@ class PostListSerializer(serializers.ModelSerializer):
     """
     Returns only general info about a post : avoid sending whole content to list view.
     """
+    
+    category = serializers.StringRelatedField()
+    
     class Meta:
         model = Post
-        fields = ['id', 'title', 'published', 'sum_up', 'slug']
+        fields = ['id', 'title', 'published', 'sum_up', 'slug', 'category']
         
 
 class FlightTrackListSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Flight_Track
+        fields = '__all__'
+        
+class PhotoListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Photo
         fields = '__all__'

@@ -86,4 +86,10 @@ Added auto slug input on Post model save method.
 
 Added a new model and new serializer, view and route for flight tracks.
 
+#### 28 au 31/01/2022
+
+Worked on photo models, serializer and views.
+Configured setting and media folder.
+For now models doesnt have any relationship with each other.
+
 ### TO BE MADE
