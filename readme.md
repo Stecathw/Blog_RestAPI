@@ -93,3 +93,5 @@ Configured setting and media folder.
 For now models doesnt have any relationship with each other.
 
 ### TO BE MADE
+
+Writting missing tests.
