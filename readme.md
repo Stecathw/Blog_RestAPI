@@ -92,6 +92,13 @@ Worked on photo models, serializer and views.
 Configured setting and media folder.
 For now models doesnt have any relationship with each other.
 
+#### 08/02/2022
+Added fields to flight track and updating my scripts to scrap data
+
+
 ### TO BE MADE
 
 Writting missing tests.
+
+Find solution to return category name and not an int to front end.
+Adding many relations ships and relations within each models.

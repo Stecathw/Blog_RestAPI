@@ -64,6 +64,17 @@ class Flight_Track(models.Model):
     distance = models.DecimalField(max_digits=6, decimal_places=2)
     CFD_public_link = models.CharField(max_length=100, blank=True)   
     category = models.IntegerField(choices=TYPE_OF_FLIGHT, default=0)
+    
+    #new fields
+    score = models.DecimalField(max_digits=5, decimal_places=2, blank=True, default=0)
+    avg_speed = models.DecimalField(max_digits=3, decimal_places=1, blank=True, default=0)
+    max_alt = models.IntegerField(blank=True, default=0)
+    vz_max = models.DecimalField(max_digits=3, decimal_places=1, blank=True, default=0)
+    take_off = models.CharField(max_length=100, blank=True)
+    take_off_time = models.CharField(max_length=100, blank=True)
+    landing = models.CharField(max_length=100, blank=True)
+    landing_time = models.CharField(max_length=100, blank=True)
+    
 
     def __str__(self):
         return f"{self.TYPE_OF_FLIGHT[self.category][1]} le {self.date} de {self.distance} km"
